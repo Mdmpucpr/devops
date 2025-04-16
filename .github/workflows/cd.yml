@@ -23,7 +23,11 @@ jobs:
 
     - name: Deploy to production
       run: |
-        # Comandos específicos para realizar o deploy
-        # Exemplos podem ser o uso de SSH para enviar para o servidor ou integração com um serviço como AWS ou Heroku
+        # Comandos específicos para realizar o deploy diretamente
         # Exemplo de deploy via SSH para um servidor
-        ssh user@your-server-ip 'bash -s' < ./deploy-scripts/deploy.sh
+        ssh user@your-server-ip << 'EOF'
+          cd /path/to/your/project
+          git pull origin main
+          npm install --production
+          pm2 restart your-app-name  # ou o comando que reinicia seu servidor de produção
+        EOF
