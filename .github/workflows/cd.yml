@@ -1,0 +1,29 @@
+name: CD Workflow
+
+on:
+  push:
+    branches:
+      - main  # Quando um commit é enviado para o branch main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Use a última versão do Ubuntu no GitHub Actions
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2  # Faz o checkout do código no repositório
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Usando a versão 14 do Node.js
+
+    - name: Install dependencies
+      run: npm install  # Instala dependências (se o seu projeto usar npm)
+
+    - name: Deploy to production
+      run: |
+        # Comandos específicos para realizar o deploy
+        # Exemplos podem ser o uso de SSH para enviar para o servidor ou integração com um serviço como AWS ou Heroku
+        # Exemplo de deploy via SSH para um servidor
+        ssh user@your-server-ip 'bash -s' < ./deploy-scripts/deploy.sh
