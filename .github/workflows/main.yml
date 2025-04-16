@@ -1,0 +1,26 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+      - branchnovo  # Change this to the branch you want to monitor for pushes
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # GitHub's runner, use ubuntu as a base
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Specify the version of Node.js you need
+
+    - name: List project files
+      run: ls -la
+
