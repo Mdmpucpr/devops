@@ -1,37 +1,21 @@
-name: CD Workflow
+name: CD to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Deploy when a commit is pushed to the 'main' branch
+      - main  # Trigger when pushing to main
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # GitHub Actions uses this environment
+    runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Check out code from the repository
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # Step 2: Set up Node.js (if you're using it for your project)
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'  # Choose the Node.js version if necessary
-
-    # Step 3: Install dependencies (only if you're using npm)
-    - name: Install dependencies
-      run: npm install  # Remove this step if you don't need it
-
-    # Step 4: Build the project (if necessary)
-    - name: Build project
-      run: npm run build  # Change if your build command is different, e.g., `npm run dist`
-
-    # Step 5: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4  # Use the latest stable version
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        branch: gh-pages  # The branch where the page will be deployed (default GitHub Pages branch)
-        folder: build     # The folder where your static files are located (replace with your actual folder name if different)
-        token: ${{ secrets.GITHUB_TOKEN }}  # Authentication token for deploying
+        branch: gh-pages  # Target branch for GitHub Pages
+        folder: .         # This is the folder to deploy — "." means root of your repo
+        token: ${{ secrets.GITHUB_TOKEN }}
