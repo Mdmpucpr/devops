@@ -1,0 +1,36 @@
+echo "name: Continuous Integration (CI)
+
+on:
+  push:
+    branches:
+      - main
+      - branchnovo
+  pull_request:
+    branches:
+      - main
+      - branchnovo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Run tests (se houver)
+        run: |
+          echo 'Nenhum teste foi configurado'
+
+      - name: Lint code (opcional)
+        run: |
+          echo 'Sem lint configurado'" > .github/workflows/ci.yml
