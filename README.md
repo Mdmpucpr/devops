@@ -1,6 +1,6 @@
 # Frases Motivacionais
 
-Este é um projeto simples criado para compartilhar frases motivacionais inspiradoras. O objetivo deste projeto é criar um aplicativo web simples, onde as pessoas podem acessar frases de incentivo e motivação para o dia a dia.
+Caro Professor. este é um projeto simples criado para compartilhar frases motivacionais inspiradoras. O objetivo deste projeto é criar um aplicativo web simples, onde as pessoas podem acessar frases de incentivo e motivação para o dia a dia.
 
 ## Tecnologias usadas
 
