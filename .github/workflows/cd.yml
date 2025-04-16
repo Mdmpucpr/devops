@@ -1,9 +1,12 @@
-name: CD to GitHub Pages
+name: CD Workflow
 
 on:
   push:
     branches:
-      - main  # Trigger when pushing to main
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   deploy:
