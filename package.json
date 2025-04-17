@@ -1,0 +1,19 @@
+{
+  "name": "devops",
+  "version": "1.0.0",
+  "description": "Caro Professor. Este é um projeto simples criado para compartilhar frases motivacionais inspiradoras. O objetivo deste projeto é criar um aplicativo web simples, onde as pessoas podem acessar frases de incentivo e motivação para o dia a dia.",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}

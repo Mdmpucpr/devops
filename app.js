@@ -1,4 +1,3 @@
-// Lista de frases motivacionais
 const quotes = [
     "Acredite em si mesmo e tudo será possível.",
     "O sucesso é a soma de pequenos esforços repetidos dia após dia.",
@@ -12,8 +11,9 @@ const quotes = [
     "O futuro pertence àqueles que acreditam na beleza dos seus sonhos."
 ];
 
-// Função para exibir uma nova frase
 function newQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     document.getElementById('quote').innerText = quotes[randomIndex];
 }
+
+module.exports = { quotes, newQuote };
