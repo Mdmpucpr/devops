@@ -1,0 +1,23 @@
+name: Discord Notification
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  notify:
+    if: github.event.pull_request.merged == true || github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord Notification
+        run: |
+          MESSAGE="🚀 Novo push ou merge no repositório *${{ github.repository }}* por *${{ github.actor }}*\n🔗 [Ver commit ou PR](${{ github.event.head_commit.url || github.event.pull_request.html_url }})"
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{\"content\": \"$MESSAGE\"}" \
+               https://discord.com/api/webhooks/1362509531866857665/RR5MRgjeWHdj2LOygBhYZopQ_ekuTAlQ2bBEJg0pCcWduZoPz1EUk7WgVUVzT0EntxXK
